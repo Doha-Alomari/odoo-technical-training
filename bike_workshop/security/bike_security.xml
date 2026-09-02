@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="group_bike_workshop_staff" model="res.groups">
+        <field name="name">Workshop Staff</field>
+    </record>
+
+</odoo>
