@@ -13,6 +13,7 @@
     'views/rental_views.xml',
     'views/repair_views.xml',
     'views/res_partner_views.xml',
+    'views/product_views.xml',
 ],
 'installable': True,
 'application': True,
