@@ -58,6 +58,8 @@
                             type="object"
                             class="btn-primary"
                             invisible="state != 'confirmed'"/>
+
+                    <field name="state" widget="statusbar"/>
                 </header>
 
                 <sheet>
@@ -76,10 +78,6 @@
                             <field name="duration"/>
                             <field name="total_amount"/>
                         </group>
-                    </group>
-
-                    <group>
-                        <field name="state"/>
                     </group>
                 </sheet>
             </form>

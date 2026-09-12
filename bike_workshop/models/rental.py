@@ -38,6 +38,7 @@ class Rental(models.Model):
 
     actual_return_date = fields.Date(
         string='Actual Return Date',
+         readonly=True,
     )
 
     daily_price = fields.Float(
@@ -66,6 +67,7 @@ class Rental(models.Model):
         string='Status',
         default='draft',
         required=True,
+        readonly=True,
     )
 
     @api.model_create_multi

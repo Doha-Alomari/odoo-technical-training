@@ -105,20 +105,22 @@
                     <group>
                         <field name="last_service_date"/>
                         <field name="service_notes"/>
-                        <field name="total_parts_cost"/>
                     </group>
 
                     <notebook>
                         <page string="Spare Parts">
                             <field name="part_line_ids">
                                 <list editable="bottom">
-                                   <field name="product_id"
-                                          domain="[('product_tmpl_id.is_spare_part', '=', True)]"/>
+                                    <field name="product_id"
+                                           domain="[('product_tmpl_id.is_spare_part', '=', True)]"/>
                                     <field name="quantity"/>
                                     <field name="unit_price"/>
                                     <field name="subtotal"/>
                                 </list>
                             </field>
+                        <group>
+                            <field name="total_parts_cost" string="Total Parts Cost"/>
+                        </group>
                         </page>
                     </notebook>
 
