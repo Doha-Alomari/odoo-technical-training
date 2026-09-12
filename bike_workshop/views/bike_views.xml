@@ -2,6 +2,22 @@
 
 <odoo>
 
+    <record id="view_bike_workshop_search" model="ir.ui.view">
+        <field name="name">bike.workshop.search</field>
+        <field name="model">bike.workshop.bike</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="brand"/>
+                <field name="bike_type"/>
+
+                <filter name="electric_bikes"
+                        string="Electric"
+                        domain="[('bike_type', '=', 'electric')]"/>
+            </search>
+        </field>
+    </record>
+
     <record id="view_bike_workshop_list" model="ir.ui.view">
         <field name="name">bike.workshop.list</field>
         <field name="model">bike.workshop.bike</field>
@@ -14,7 +30,6 @@
                 <field name="last_maintenance_date"/>
                 <field name="daily_rental_price"/>
                 <field name="wheel_size"/>
-                
             </list>
         </field>
     </record>
@@ -24,6 +39,17 @@
         <field name="model">bike.workshop.bike</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_view_rentals"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-calendar">
+                        <field name="rental_count"
+                               widget="statinfo"
+                               string="Rentals"/>
+                    </button>
+                </header>
+
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -33,6 +59,12 @@
                         <field name="last_maintenance_date"/>
                         <field name="daily_rental_price"/>
                         <field name="wheel_size"/>
+                    </group>
+
+                    <group string="Service Information">
+                        <field name="assigned_mechanic"/>
+                        <field name="last_service_date"/>
+                        <field name="service_notes"/>
                     </group>
                 </sheet>
             </form>
