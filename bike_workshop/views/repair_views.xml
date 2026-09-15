@@ -40,7 +40,12 @@
                 <field name="assigned_mechanic"/>
                 <field name="last_service_date"/>
                 <field name="total_parts_cost"/>
-                <field name="state"/>
+                <field name="state"
+                    widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-warning="state == 'in_progress'"
+                    decoration-success="state == 'completed'"
+                    decoration-danger="state == 'cancelled'"/>
             </list>
         </field>
     </record>

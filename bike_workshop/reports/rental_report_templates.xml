@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="rental_agreement_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="rental">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <h2>Rental Agreement</h2>
+
+                        <p>
+                            <strong>Rental Reference:</strong>
+                            <span t-field="rental.name"/>
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            <span t-field="rental.state"/>
+                        </p>
+
+                         <p>
+                            <strong>Customer:</strong>
+                            <span t-field="rental.customer_id"/>
+                        </p>
+
+                        <p>
+                            <strong>Bike:</strong>
+                            <span t-field="rental.bike_id"/>
+                        </p>
+
+                        <p>
+                            <strong>Rental Start Date:</strong>
+                            <span t-field="rental.start_date"/>
+                        </p>
+
+                        <p>
+                            <strong>Expected Return Date:</strong>
+                            <span t-field="rental.expected_return_date"/>
+                        </p>
+
+                        <t t-if="rental.actual_return_date">
+                            <p>
+                                <strong>Actual Return Date:</strong>
+                                <span t-field="rental.actual_return_date"/>
+                            </p>
+                        </t>
+
+                        <p>
+                            <strong>Rental Duration:</strong>
+                            <span t-field="rental.duration"/>
+                            days
+                        </p>
+
+                        <p>
+                            <strong>Daily Rental Price:</strong>
+                            <span t-field="rental.daily_price"/>
+                        </p>
+
+                        <p>
+                            <strong>Total Rental Amount:</strong>
+                            <span t-field="rental.total_amount"/>
+                        </p>
+
+                    </div>     
+
+
+                </t>
+
+            </t>
+        </t>
+    </template>
+
+</odoo>
