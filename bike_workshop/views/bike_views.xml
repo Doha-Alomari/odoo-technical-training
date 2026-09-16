@@ -15,7 +15,7 @@
                         string="Electric"
                         domain="[('bike_type', '=', 'electric')]"/>
 
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Bike Type"
                         name="group_by_bike_type"

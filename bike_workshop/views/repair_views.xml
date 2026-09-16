@@ -25,7 +25,7 @@
                         string="Cancelled"
                         domain="[('state', '=', 'cancelled')]"/>
 
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Status"
                         name="group_by_state"
