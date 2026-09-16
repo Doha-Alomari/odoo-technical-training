@@ -7,18 +7,16 @@ class BikeWorkshopPortal(CustomerPortal):
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
 
+        if 'rental_count' in counters:
+            partner = request.env.user.partner_id
 
-       if 'rental_count' in counters:
-            if 'rental_count' in counters:
-                partner = request.env.user.partner_id
+            values['rental_count'] = request.env[
+                'bike.workshop.rental'
+            ].search_count([
+                ('customer_id', '=', partner.id),
+            ])
 
-                values['rental_count'] = request.env[
-                    'bike.workshop.rental'
-                ].search_count([
-                    ('customer_id', '=', partner.id),
-                ])
-
-            return values
+        return values
 
     @route(
         '/my/rentals',

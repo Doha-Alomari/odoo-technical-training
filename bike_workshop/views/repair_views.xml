@@ -24,6 +24,14 @@
                 <filter name="cancelled_repairs"
                         string="Cancelled"
                         domain="[('state', '=', 'cancelled')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Status"
+                        name="group_by_state"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
             </search>
         </field>
     </record>

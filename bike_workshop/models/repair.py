@@ -7,6 +7,14 @@ class Repair(ServiceInfoMixin, models.Model):
     _name = 'bike.workshop.repair'
     _description = 'Bike Repair'
 
+    _sql_constraints = [
+        (
+            'unique_repair_reference',
+            'unique(name)',
+            'Repair Reference must be unique.'
+        ),
+    ]
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:

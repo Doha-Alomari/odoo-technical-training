@@ -19,6 +19,14 @@
                 <filter name="returned_rentals"
                         string="Returned"
                         domain="[('state', '=', 'returned')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Status"
+                        name="group_by_state"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
             </search>
         </field>
     </record>

@@ -6,6 +6,14 @@ class Rental(models.Model):
     _name = 'bike.workshop.rental'
     _description = 'Bike Rental'
 
+    _sql_constraints = [
+        (
+            'unique_rental_reference',
+            'unique(name)',
+            'Rental Reference must be unique.'
+        ),
+    ]
+
     name = fields.Char(
         string='Rental Reference',
         required=True,

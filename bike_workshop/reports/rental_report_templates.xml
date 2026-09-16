@@ -10,66 +10,154 @@
 
                     <div class="page">
 
-                        <h2>Rental Agreement</h2>
+                        <!-- Title -->
+                        <h1 style="font-size: 28px; margin-bottom: 25px;">
+                            Rental Agreement
+                        </h1>
 
-                        <p>
-                            <strong>Rental Reference:</strong>
-                            <span t-field="rental.name"/>
-                        </p>
+                        <!-- Customer & Bike Information -->
+                        <table
+                            style="width: 100%; border-collapse: collapse; margin-bottom: 25px;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Customer &amp; Bike Information</strong>
+                                </td>
+                            </tr>
 
-                        <p>
-                            <strong>Status:</strong>
-                            <span t-field="rental.state"/>
-                        </p>
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Customer : </strong>
+                                    <span t-field="rental.customer_id"/>
+                                </td>
 
-                         <p>
-                            <strong>Customer:</strong>
-                            <span t-field="rental.customer_id"/>
-                        </p>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Bike : </strong>
+                                    <span t-field="rental.bike_id"/>
+                                </td>
+                            </tr>
+                        </table>
 
-                        <p>
-                            <strong>Bike:</strong>
-                            <span t-field="rental.bike_id"/>
-                        </p>
+                        <!-- Rental Information -->
+                        <table
+                            style="width: 100%; border-collapse: collapse; margin-bottom: 25px;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Rental Information</strong>
+                                </td>
+                            </tr>
 
-                        <p>
-                            <strong>Rental Start Date:</strong>
-                            <span t-field="rental.start_date"/>
-                        </p>
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Rental Reference : </strong>
+                                    <span t-field="rental.name"/>
+                                </td>
 
-                        <p>
-                            <strong>Expected Return Date:</strong>
-                            <span t-field="rental.expected_return_date"/>
-                        </p>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Status : </strong>
+                                    <span t-field="rental.state"/>
+                                </td>
+                            </tr>
 
-                        <t t-if="rental.actual_return_date">
-                            <p>
-                                <strong>Actual Return Date:</strong>
-                                <span t-field="rental.actual_return_date"/>
-                            </p>
-                        </t>
+                            <tr>
+                                <td
+                                    style="border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Rental Start Date : </strong>
+                                    <span t-field="rental.start_date"/>
+                                </td>
 
-                        <p>
-                            <strong>Rental Duration:</strong>
-                            <span t-field="rental.duration"/>
-                            days
-                        </p>
+                                <td
+                                    style="border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Expected Return Date : </strong>
+                                    <span t-field="rental.expected_return_date"/>
+                                </td>
+                            </tr>
 
-                        <p>
-                            <strong>Daily Rental Price:</strong>
-                            <span t-field="rental.daily_price"/>
-                        </p>
+                            <t t-if="rental.actual_return_date">
+                                <tr>
+                                    <td
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Actual Return Date : </strong>
+                                        <span t-field="rental.actual_return_date"/>
+                                    </td>
 
-                        <p>
-                            <strong>Total Rental Amount:</strong>
-                            <span t-field="rental.total_amount"/>
-                        </p>
+                                    <td
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Rental Duration : </strong>
+                                        <span t-field="rental.duration"/>
+                                        days
+                                    </td>
+                                </tr>
+                            </t>
 
-                    </div>     
+                            <t t-else="">
+                                <tr>
+                                    <td
+                                        colspan="2"
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Rental Duration : </strong>
+                                        <span t-field="rental.duration"/>
+                                        days
+                                    </td>
+                                </tr>
+                            </t>
 
+                        </table>
 
+                        <!-- Financial Summary -->
+                        <table
+                            style="width: 100%; border-collapse: collapse;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Financial Summary</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Daily Rental Price : </strong>
+                                    <span t-field="rental.daily_price"/>
+                                </td>
+
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Total Rental Amount : </strong>
+                                    <strong style="font-size: 18px;">
+                                        <span t-field="rental.total_amount"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
                 </t>
-
             </t>
         </t>
     </template>
