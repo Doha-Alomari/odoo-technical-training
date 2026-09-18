@@ -184,6 +184,59 @@ The available options are:
 
 The existing Contacts form is extended using Odoo view inheritance.
 
+### Reports
+
+The module provides a printable Rental Agreement QWeb PDF report.
+
+The Rental Agreement includes:
+
+* Rental Reference
+* Rental Status
+* Customer Information
+* Rented Bike
+* Rental Start Date
+* Expected Return Date
+* Actual Return Date when available
+* Rental Duration
+* Daily Rental Price
+* Total Rental Amount
+* Workshop Information
+
+The report uses the stored rental values and provides a meaningful filename based on the Rental Reference.
+
+### Workshop Dashboard
+
+The Workshop Dashboard provides a summary of today's workshop operations:
+
+* Active Rentals Today
+* Returns Due Today
+* Repairs In Progress
+
+Each dashboard counter is clickable and opens the corresponding filtered records.
+
+### Customer Portal
+
+Customers can access their bike rental information through the Odoo Customer Portal.
+
+The portal provides:
+
+* My Rentals counter
+* Customer-specific rental list
+* Rental details page
+* Rental Reference
+* Bike
+* Start Date
+* Expected Return Date
+* Actual Return Date when available
+* Status
+* Rental Duration
+* Daily Rental Price
+* Total Rental Amount
+
+Portal access is read-only and customers can only view their own rental records.
+
+Internal information such as mechanic assignments and service notes is not exposed through the portal.
+
 ## Views and Navigation
 
 The module provides:
@@ -198,6 +251,7 @@ The module provides:
 * Bike Menu
 * Rental Menus
 * Repair Menu
+* Workshop Dashboard
 
 Rental navigation includes:
 
@@ -205,6 +259,14 @@ Rental navigation includes:
 * Confirmed Rentals
 
 The Bike Rental smart button provides filtered rental history for the selected bike.
+
+The Workshop Dashboard provides direct access to:
+
+* Active Rentals Today
+* Returns Due Today
+* Repairs In Progress
+
+The Customer Portal provides access to customer rental information through the portal interface.
 
 ## Security
 
@@ -226,7 +288,15 @@ The access control list provides:
 * Create
 * Delete
 
+Customer Portal access is read-only.
+
+Portal customers can only access their own rental records.
+
 Users without the required permissions cannot access the Bike Workshop functionality.
+
+Unauthorized customers cannot access rental records belonging to other customers.
+
+Public users must authenticate before accessing customer rental information.
 
 ## Requirements
 
@@ -258,6 +328,9 @@ After installation:
 4. Use **Repairs** to manage workshop and external bike repairs.
 5. Mark relevant Odoo Products as **Spare Parts** before using them in repairs.
 6. Use the Bike Rental smart button to view rental history for a specific bike.
+7. Use the **Workshop Dashboard** to monitor current rental and repair activity.
+8. Generate a **Rental Agreement** PDF from a rental record.
+9. Customers can use the **Customer Portal** to view their own rental information.
 
 Users with Workshop Staff permissions can manage the available workshop operations through the List and Form views.
 
@@ -301,6 +374,24 @@ The following functionality was verified:
 * Filtered rental history
 * All Rentals menu
 * Confirmed Rentals menu
+* Workshop Dashboard access
+* Active Rentals Today counter and filtered records
+* Returns Due Today counter and filtered records
+* Repairs In Progress counter and filtered records
+* Rental Agreement PDF generation
+* Rental Agreement stored rental values
+* Rental Agreement filename
+* Customer Portal access
+* My Rentals counter
+* Customer rental list
+* Customer rental details
+* Portal read-only access
+* Customer rental access isolation
+* Unauthorized rental access restriction
+* Public user access restriction
+* Portal protection of internal workshop information
+* Rental status indicators
+* Repair status indicators
 * Workshop Staff access permissions
 * Unauthorized user restriction
 * Existing Bike Workshop functionality from Exercise 1

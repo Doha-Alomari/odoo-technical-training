@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="rental_agreement_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="rental">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <!-- Title -->
+                        <h1 style="font-size: 28px; margin-bottom: 25px;">
+                            Rental Agreement
+                        </h1>
+
+                        <!-- Customer & Bike Information -->
+                        <table
+                            style="width: 100%; border-collapse: collapse; margin-bottom: 25px;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Customer &amp; Bike Information</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Customer : </strong>
+                                    <span t-field="rental.customer_id"/>
+                                </td>
+
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Bike : </strong>
+                                    <span t-field="rental.bike_id"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Rental Information -->
+                        <table
+                            style="width: 100%; border-collapse: collapse; margin-bottom: 25px;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Rental Information</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Rental Reference : </strong>
+                                    <span t-field="rental.name"/>
+                                </td>
+
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Status : </strong>
+                                    <span t-field="rental.state"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td
+                                    style="border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Rental Start Date : </strong>
+                                    <span t-field="rental.start_date"/>
+                                </td>
+
+                                <td
+                                    style="border: 1px solid #ddd; padding: 10px;"
+                                >
+                                    <strong>Expected Return Date : </strong>
+                                    <span t-field="rental.expected_return_date"/>
+                                </td>
+                            </tr>
+
+                            <t t-if="rental.actual_return_date">
+                                <tr>
+                                    <td
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Actual Return Date : </strong>
+                                        <span t-field="rental.actual_return_date"/>
+                                    </td>
+
+                                    <td
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Rental Duration : </strong>
+                                        <span t-field="rental.duration"/>
+                                        days
+                                    </td>
+                                </tr>
+                            </t>
+
+                            <t t-else="">
+                                <tr>
+                                    <td
+                                        colspan="2"
+                                        style="border: 1px solid #ddd; padding: 10px;"
+                                    >
+                                        <strong>Rental Duration : </strong>
+                                        <span t-field="rental.duration"/>
+                                        days
+                                    </td>
+                                </tr>
+                            </t>
+
+                        </table>
+
+                        <!-- Financial Summary -->
+                        <table
+                            style="width: 100%; border-collapse: collapse;"
+                        >
+                            <tr>
+                                <td
+                                    colspan="2"
+                                    style="background-color: #f2f2f2; border: 1px solid #ddd; padding: 10px; font-size: 16px;"
+                                >
+                                    <strong>Financial Summary</strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Daily Rental Price : </strong>
+                                    <span t-field="rental.daily_price"/>
+                                </td>
+
+                                <td
+                                    style="width: 50%; border: 1px solid #ddd; padding: 12px;"
+                                >
+                                    <strong>Total Rental Amount : </strong>
+                                    <strong style="font-size: 18px;">
+                                        <span t-field="rental.total_amount"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

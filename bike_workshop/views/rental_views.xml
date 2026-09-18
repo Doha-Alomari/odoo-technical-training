@@ -19,6 +19,14 @@
                 <filter name="returned_rentals"
                         string="Returned"
                         domain="[('state', '=', 'returned')]"/>
+
+                <group>
+                    <filter
+                        string="Status"
+                        name="group_by_state"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
             </search>
         </field>
     </record>
@@ -27,16 +35,20 @@
         <field name="name">bike.workshop.rental.list</field>
         <field name="model">bike.workshop.rental</field>
         <field name="arch" type="xml">
-            <list>
+           <list>
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="bike_id"/>
                 <field name="start_date"/>
                 <field name="expected_return_date"/>
-                <field name="daily_price"/>
                 <field name="duration"/>
+                <field name="daily_price"/>
                 <field name="total_amount"/>
-                <field name="state"/>
+                <field name="state"
+                    widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'confirmed'"
+                    decoration-muted="state == 'returned'"/>
             </list>
         </field>
     </record>

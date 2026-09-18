@@ -14,6 +14,14 @@
                 <filter name="electric_bikes"
                         string="Electric"
                         domain="[('bike_type', '=', 'electric')]"/>
+
+                <group>
+                    <filter
+                        string="Bike Type"
+                        name="group_by_bike_type"
+                        context="{'group_by': 'bike_type'}"
+                    />
+                </group>
             </search>
         </field>
     </record>
