@@ -4,21 +4,23 @@
 
     <t t-name="bike_workshop.WorkshopDashboard">
 
-        <div class="container-fluid py-4">
+        <div class="container-fluid py-4 bike-workshop-dashboard">
 
             <!-- Header -->
-            <div class="mb-4">
+            <!-- Header -->
+            <div class="mb-4 workshop-header">
 
-                <h1 class="fw-bold mb-1">
+                <img
+                    src="/bike_workshop/static/src/img/Rami's%20Bike%20Workshop.png"
+                    alt="Rami's Bike Workshop"
+                    style="max-height: 120px; max-width: 320px;"
+                    class="mb-3 workshop-logo"
+                />
+
+                <h1 class="fw-bold mb-1 workshop-title">
                     Workshop Operations Dashboard
                 </h1>
-
-                <p class="text-muted">
-                    Today's workshop activity
-                </p>
-
             </div>
-
 
             <!-- Dashboard Cards -->
             <div class="row g-4">
@@ -27,29 +29,29 @@
                 <div class="col-12 col-md-4">
 
                     <div
-                        class="card h-100 shadow-sm"
+                        class="card h-100 shadow-sm workshop-card"
                         t-on-click="openActiveRentals"
                         style="cursor: pointer;"
                     >
 
                         <div class="card-body p-4">
 
-                            <p class="text-muted mb-2">
+                            <p class="workshop-card-label mb-2">
                                 ACTIVE RENTALS
                             </p>
 
-                            <h1 class="display-4 fw-bold mb-2">
+                            <h1 class="display-4 fw-bold mb-2 workshop-card-number">
                                 <t t-esc="dashboardData.active_rentals_today"/>
                             </h1>
 
-                            <p class="text-muted mb-0">
+                            <p class="workshop-card-description mb-0">
                                 Rentals active today
                             </p>
 
                         </div>
 
                         <div class="card-footer bg-transparent">
-                            <span class="text-primary">
+                            <span class="workshop-card-link">
                                 View active rentals →
                             </span>
                         </div>
@@ -63,29 +65,29 @@
                 <div class="col-12 col-md-4">
 
                     <div
-                        class="card h-100 shadow-sm"
+                        class="card h-100 shadow-sm workshop-card"
                         t-on-click="openReturnsDue"
                         style="cursor: pointer;"
                     >
 
                         <div class="card-body p-4">
 
-                            <p class="text-muted mb-2">
+                            <p class="workshop-card-label mb-2">
                                 RETURNS DUE
                             </p>
 
-                            <h1 class="display-4 fw-bold mb-2">
+                            <h1 class="display-4 fw-bold mb-2 workshop-card-number">
                                 <t t-esc="dashboardData.returns_due_today"/>
                             </h1>
 
-                            <p class="text-muted mb-0">
+                            <p class="workshop-card-description mb-0">
                                 Returns due today
                             </p>
 
                         </div>
 
                         <div class="card-footer bg-transparent">
-                            <span class="text-primary">
+                            <span class="workshop-card-link">
                                 View returns →
                             </span>
                         </div>
@@ -99,29 +101,29 @@
                 <div class="col-12 col-md-4">
 
                     <div
-                        class="card h-100 shadow-sm"
+                        class="card h-100 shadow-sm workshop-card"
                         t-on-click="openRepairsInProgress"
                         style="cursor: pointer;"
                     >
 
                         <div class="card-body p-4">
 
-                            <p class="text-muted mb-2">
+                            <p class="workshop-card-label mb-2">
                                 REPAIRS IN PROGRESS
                             </p>
 
-                            <h1 class="display-4 fw-bold mb-2">
+                            <h1 class="display-4 fw-bold mb-2 workshop-card-number">
                                 <t t-esc="dashboardData.repairs_in_progress"/>
                             </h1>
 
-                            <p class="text-muted mb-0">
+                            <p class="workshop-card-description mb-0">
                                 Repairs currently in progress
                             </p>
 
                         </div>
 
                         <div class="card-footer bg-transparent">
-                            <span class="text-primary">
+                            <span class="workshop-card-link">
                                 View repairs →
                             </span>
                         </div>

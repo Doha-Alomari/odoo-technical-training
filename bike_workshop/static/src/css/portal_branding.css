@@ -1,0 +1,99 @@
+/* Rami's Bike Workshop - Portal Branding */
+
+.bike-workshop-portal {
+    background-color: #ffffff;
+}
+
+.bike-workshop-portal .portal-workshop-header {
+    border-bottom: 3px solid #9ACD32;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.bike-workshop-portal .portal-workshop-logo {
+    max-height: 90px;
+    max-width: 260px;
+    object-fit: contain;
+}
+
+.bike-workshop-portal .portal-workshop-title {
+    color: #343434;
+    font-weight: 700;
+}
+
+.bike-workshop-portal .portal-workshop-subtitle {
+    color: #6c757d;
+}
+
+.bike-workshop-portal .portal-rental-card {
+    border: 1px solid #e9e9e9;
+    border-top: 4px solid #9ACD32;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bike-workshop-portal .portal-rental-card:hover {
+    transform: translateY(-2px);
+}
+
+.bike-workshop-portal .portal-rental-heading {
+    color: #343434;
+    font-weight: 700;
+}
+
+.bike-workshop-portal .portal-rental-link {
+    color: #78A82B;
+}
+
+.bike-workshop-portal .portal-rental-link:hover {
+    color: #5f8d20;
+}
+
+.bike-workshop-portal .portal-rental-label {
+    color: #343434;
+    font-weight: 600;
+}
+
+.bike-workshop-portal .portal-total-amount {
+    color: #78A82B;
+    font-weight: 700;
+}
+
+.bike-workshop-portal .portal-back-button {
+    border-color: #78A82B;
+    background-color: #ffffff;
+    color: #78A82B;
+}
+
+.bike-workshop-portal .portal-back-button:hover {
+    background-color: #f5f5f5;
+    border-color: #78A82B;
+    color: #78A82B;
+}
+
+.bike-workshop-portal .portal-home-rental-card {
+    border: 1px solid #e9e9e9;
+    border-left: 5px solid #9ACD32;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bike-workshop-portal .portal-home-rental-card:hover {
+    transform: translateY(-3px);
+}
+
+.bike-workshop-portal .portal-home-rental-title {
+    color: #343434;
+    font-weight: 700;
+}
+
+.bike-workshop-portal .portal-home-rental-description {
+    color: #6c757d;
+}
+
+.bike-workshop-portal .portal-rental-count {
+}
+
+.bike-workshop-portal .portal-arrow {
+    color: #78A82B;
+}

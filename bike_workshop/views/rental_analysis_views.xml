@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_bike_workshop_rental_pivot" model="ir.ui.view">
+        <field name="name">bike.workshop.rental.pivot</field>
+        <field name="model">bike.workshop.rental</field>
+        <field name="arch" type="xml">
+            <pivot string="Rental Analysis">
+                <field name="start_date" type="row" interval="month"/>
+                <field name="bike_type" type="row"/>
+                <field name="state" type="col"/>
+                <field name="return_performance" type="col"/>
+                <field name="total_amount" type="measure"/>
+                <field name="duration" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_bike_workshop_rental_graph" model="ir.ui.view">
+        <field name="name">bike.workshop.rental.graph</field>
+        <field name="model">bike.workshop.rental</field>
+        <field name="arch" type="xml">
+            <graph string="Rental Analysis" type="bar">
+                <field name="start_date" interval="month"/>
+                <field name="total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_bike_workshop_rental_analysis_search" model="ir.ui.view">
+        <field name="name">bike.workshop.rental.analysis.search</field>
+        <field name="model">bike.workshop.rental</field>
+        <field name="arch" type="xml">
+            <search string="Rental Analysis">
+
+                <!-- Filters -->
+                <filter name="filter_confirmed"
+                        string="Confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+
+                <filter name="filter_returned"
+                        string="Returned"
+                        domain="[('state', '=', 'returned')]"/>
+
+                <filter name="filter_start_date"
+                        string="Start Date"
+                        date="start_date"/>
+
+                <field name="bike_id"/>
+                <field name="bike_type"/>
+                <field name="customer_id"/>
+                <field name="start_date"/>
+                <field name="return_performance"/>
+
+                <!-- Group By -->
+                <group>
+                    <filter name="group_by_month"
+                            string="Rental Month"
+                            context="{'group_by': 'start_date:month'}"/>
+
+                    <filter name="group_by_bike_type"
+                            string="Bike Type"
+                            context="{'group_by': 'bike_type'}"/>
+
+                    <filter name="group_by_bike"
+                            string="Bike"
+                            context="{'group_by': 'bike_id'}"/>
+
+                    <filter name="group_by_status"
+                            string="Rental Status"
+                            context="{'group_by': 'state'}"/>
+
+                    <filter name="group_by_customer"
+                            string="Customer"
+                            context="{'group_by': 'customer_id'}"/>
+
+                    <filter name="group_by_return_performance"
+                            string="Return Performance"
+                            context="{'group_by': 'return_performance'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bike_workshop_rental_analysis" model="ir.actions.act_window">
+        <field name="name">Rental Analysis</field>
+        <field name="res_model">bike.workshop.rental</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="search_view_id" ref="view_bike_workshop_rental_analysis_search"/>
+        <field name="domain">[('state', 'in', ['confirmed', 'returned'])]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_bike_workshop_rental_analysis"
+              name="Rental Analysis"
+              parent="menu_bike_workshop_root"
+              action="action_bike_workshop_rental_analysis"
+              sequence="30"/>
+
+</odoo>

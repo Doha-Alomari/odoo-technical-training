@@ -11,6 +11,7 @@
                 <field name="customer_id"/>
                 <field name="bike_id"/>
                 <field name="state"/>
+                <field name="return_performance"/>
 
                 <filter name="confirmed_rentals"
                         string="Confirmed"
@@ -81,6 +82,7 @@
                             <field name="customer_id"/>
                             <field name="bike_id"/>
                             <field name="daily_price"/>
+                            <field name="return_performance"/>
                         </group>
 
                         <group>
