@@ -1,4 +1,4 @@
-from odoo import api, models, fields
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 from .service_mixin import ServiceInfoMixin
 
@@ -117,64 +117,62 @@ class Repair(ServiceInfoMixin, models.Model):
         for repair in self:
             if repair.bike_source == 'workshop' and not repair.bike_id:
                 raise ValidationError(
-                    'Please select a Workshop Bike.'
+                    _('Please select a Workshop Bike.')
                 )
 
             if repair.bike_source == 'external':
                 if not repair.external_reference:
                     raise ValidationError(
-                        'Please enter the External Bike Reference.'
+                        _('Please enter the External Bike Reference.')
                     )
 
                 if not repair.external_brand:
-                    raise ValidationError(
-                        'Please enter the External Bike Brand.'
+                   raise ValidationError(
+                        _('Please enter the External Bike Brand.')
                     )
 
                 if not repair.external_bike_type:
                     raise ValidationError(
-                        'Please select the External Bike Type.'
+                        _('Please select the External Bike Type.')
                     )
 
     def action_start(self):
         for repair in self:
             if repair.state != 'draft':
                 raise ValidationError(
-                    'Only Draft Repairs can be started.'
+                    _('Only Draft Repairs can be started.')
                 )
-
             if not repair.customer_id:
                 raise ValidationError(
-                    'Customer is required to start the repair.'
+                    _('Customer is required to start the repair.')
                 )
 
             if not repair.reported_issue:
-                raise ValidationError(
-                    'Reported Issue is required to start the repair.'
+               raise ValidationError(
+                    _('Reported Issue is required to start the repair.')
                 )
 
             if not repair.assigned_mechanic:
                 raise ValidationError(
-                    'Assigned Mechanic is required to start the repair.'
+                    _('Assigned Mechanic is required to start the repair.')
                 )
-
             repair.state = 'in_progress'
 
     def action_complete(self):
         for repair in self:
             if repair.state != 'in_progress':
                 raise ValidationError(
-                    'Only In Progress Repairs can be completed.'
+                    _('Only In Progress Repairs can be completed.')
                 )
 
             if not repair.service_notes:
                 raise ValidationError(
-                    'Service Notes are required to complete the repair.'
+                    _('Service Notes are required to complete the repair.')
                 )
 
             if not repair.last_service_date:
                 raise ValidationError(
-                    'Last Service Date is required to complete the repair.'
+                    _('Last Service Date is required to complete the repair.')
                 )
 
             repair.state = 'completed'
@@ -183,7 +181,7 @@ class Repair(ServiceInfoMixin, models.Model):
         for repair in self:
             if repair.state not in ('draft', 'in_progress'):
                 raise ValidationError(
-                    'Only Draft or In Progress Repairs can be cancelled.'
+                    _('Only Draft or In Progress Repairs can be cancelled.')
                 )
 
             repair.state = 'cancelled'
@@ -238,15 +236,15 @@ class RepairPartLine(models.Model):
         for line in self:
             if line.quantity < 0:
                 raise ValidationError(
-                    'Quantity cannot be negative.'
+                    _('Quantity cannot be negative.')
                 )
 
             if line.unit_price < 0:
                 raise ValidationError(
-                    'Unit Price cannot be negative.'
+                    _('Unit Price cannot be negative.')
                 )
 
             if line.subtotal < 0:
                 raise ValidationError(
-                    'Subtotal cannot be negative.'
+                    _('Subtotal cannot be negative.')
                 )
