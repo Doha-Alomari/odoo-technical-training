@@ -26,56 +26,41 @@ export class WorkshopDashboard extends Component {
 
             this.dashboardData.active_rentals_today =
                 data.active_rentals_today;
-
             this.dashboardData.returns_due_today =
                 data.returns_due_today;
-
             this.dashboardData.repairs_in_progress =
                 data.repairs_in_progress;
         });
     }
 
-    openActiveRentals() {
-        const today = luxon.DateTime.now().toISODate();
+    async openActiveRentals() {
+        const action = await this.orm.call(
+            "bike.workshop.dashboard",
+            "action_view_active_rentals",
+            []
+        );
 
-        this.action.doAction({
-            type: "ir.actions.act_window",
-            name: "Active Rentals Today",
-            res_model: "bike.workshop.rental",
-            views: [[false, "list"], [false, "form"]],
-            domain: [
-                ["state", "=", "confirmed"],
-                ["start_date", "<=", today],
-                ["expected_return_date", ">=", today],
-            ],
-        });
+        this.action.doAction(action);
     }
 
-    openReturnsDue() {
-        const today = luxon.DateTime.now().toISODate();
+    async openReturnsDue() {
+        const action = await this.orm.call(
+            "bike.workshop.dashboard",
+            "action_view_returns_due",
+            []
+        );
 
-        this.action.doAction({
-            type: "ir.actions.act_window",
-            name: "Returns Due Today",
-            res_model: "bike.workshop.rental",
-            views: [[false, "list"], [false, "form"]],
-            domain: [
-                ["state", "=", "confirmed"],
-                ["expected_return_date", "=", today],
-            ],
-        });
+        this.action.doAction(action);
     }
 
-    openRepairsInProgress() {
-        this.action.doAction({
-            type: "ir.actions.act_window",
-            name: "Repairs In Progress",
-            res_model: "bike.workshop.repair",
-            views: [[false, "list"], [false, "form"]],
-            domain: [
-                ["state", "=", "in_progress"],
-            ],
-        });
+    async openRepairsInProgress() {
+        const action = await this.orm.call(
+            "bike.workshop.dashboard",
+            "action_view_repairs_in_progress",
+            []
+        );
+
+        this.action.doAction(action);
     }
 }
 

@@ -86,7 +86,9 @@
     </record>
 
     <menuitem id="menu_bike_workshop_root"
-              name="Bike Workshop"/>
+              name="Bike Workshop"
+              web_icon="bike_workshop,static/description/icon.png"/>
+
 
     <menuitem id="menu_bike_workshop_bikes"
               name="Bikes"

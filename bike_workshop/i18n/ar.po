@@ -43,6 +43,9 @@ msgid ""
 "                                    Bike\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    الدراجة\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -51,6 +54,9 @@ msgid ""
 "                                    Daily Rental Price\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    سعر التأجير اليومي\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -59,6 +65,9 @@ msgid ""
 "                                    Expected Return Date\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    تاريخ الإرجاع المتوقع\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -67,6 +76,9 @@ msgid ""
 "                                    Rental Duration\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    مدة التأجير\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -75,6 +87,9 @@ msgid ""
 "                                    Rental Reference\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    مرجع التأجير\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -83,6 +98,9 @@ msgid ""
 "                                    Start Date\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    تاريخ البدء\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -91,6 +109,9 @@ msgid ""
 "                                    Status\n"
 "                                </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                    الحالة\n"
+"                                </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
@@ -99,6 +120,9 @@ msgid ""
 "                                Total Amount\n"
 "                            </strong>"
 msgstr ""
+"<strong class=\"portal-rental-label\">\n"
+"                                المبلغ الإجمالي\n"
+"                            </strong>"
 
 #. module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.rental_agreement_document

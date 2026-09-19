@@ -6,3 +6,4 @@ from . import res_partner
 from . import product
 from . import dashboard
 from . import company_branding
+from . import ir_http
