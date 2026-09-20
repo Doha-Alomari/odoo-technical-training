@@ -90,6 +90,7 @@ class WorkshopDashboard(models.TransientModel):
                 ('start_date', '<=', today),
                 ('expected_return_date', '>=', today),
             ],
+            'context': {'create': False},
         }
 
     @api.model
@@ -110,6 +111,7 @@ class WorkshopDashboard(models.TransientModel):
                 ('state', '=', 'confirmed'),
                 ('expected_return_date', '=', today),
             ],
+            'context': {'create': False},
         }
 
     @api.model
@@ -127,4 +129,5 @@ class WorkshopDashboard(models.TransientModel):
             'domain': [
                 ('state', '=', 'in_progress'),
             ],
+            'context': {'create': False},
         }

@@ -89,7 +89,7 @@
         <field name="view_mode">pivot,graph</field>
         <field name="search_view_id" ref="view_bike_workshop_rental_analysis_search"/>
         <field name="domain">[('state', 'in', ['confirmed', 'returned'])]</field>
-        <field name="context">{}</field>
+        <field name="context">{'create': False}</field>
     </record>
 
     <menuitem id="menu_bike_workshop_rental_analysis"
