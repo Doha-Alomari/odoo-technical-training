@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class WorkshopDashboard(models.TransientModel):
@@ -71,42 +71,63 @@ class WorkshopDashboard(models.TransientModel):
             ]),
         }
 
+    @api.model
     def action_view_active_rentals(self):
         today = fields.Date.today()
 
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Active Rentals Today',
+            'name': (
+                'التأجيرات النشطة اليوم'
+                if self.env.lang.startswith('ar')
+                else 'Active Rentals Today'
+            ),
             'res_model': 'bike.workshop.rental',
+            'views': [[False, 'list'], [False, 'form']],
             'view_mode': 'list,form',
             'domain': [
                 ('state', '=', 'confirmed'),
                 ('start_date', '<=', today),
                 ('expected_return_date', '>=', today),
             ],
+            'context': {'create': False},
         }
 
+    @api.model
     def action_view_returns_due(self):
         today = fields.Date.today()
 
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Returns Due Today',
+            'name': (
+                'الإرجاعات المستحقة اليوم'
+                if self.env.lang.startswith('ar')
+                else 'Returns Due Today'
+            ),
             'res_model': 'bike.workshop.rental',
+            'views': [[False, 'list'], [False, 'form']],
             'view_mode': 'list,form',
             'domain': [
                 ('state', '=', 'confirmed'),
                 ('expected_return_date', '=', today),
             ],
+            'context': {'create': False},
         }
 
+    @api.model
     def action_view_repairs_in_progress(self):
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Repairs In Progress',
+            'name': (
+                'الإصلاحات قيد التنفيذ'
+                if self.env.lang.startswith('ar')
+                else 'Repairs In Progress'
+            ),
             'res_model': 'bike.workshop.repair',
+            'views': [[False, 'list'], [False, 'form']],
             'view_mode': 'list,form',
             'domain': [
                 ('state', '=', 'in_progress'),
             ],
+            'context': {'create': False},
         }

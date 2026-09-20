@@ -1,0 +1,286 @@
+/* =========================================================
+   Rami's Bike Workshop - Global Branding
+   Balanced Green Theme
+   ========================================================= */
+
+
+/* =========================================================
+   1. Dashboard
+   ========================================================= */
+
+.bike-workshop-dashboard {
+    background: #F2F6E9;
+    min-height: 100%;
+}
+
+.bike-workshop-dashboard .workshop-header {
+    background: #FFFFFF;
+    border-bottom: 3px solid #9CAF72;
+    padding-bottom: 20px;
+}
+
+.bike-workshop-dashboard .workshop-logo {
+    max-height: 120px;
+    max-width: 320px;
+    object-fit: contain;
+}
+
+.bike-workshop-dashboard .workshop-title {
+    color: #343434;
+}
+
+.bike-workshop-dashboard .workshop-subtitle {
+    color: #6C757D;
+}
+
+.bike-workshop-dashboard .workshop-card {
+    background: #FFFFFF;
+    border: 1px solid #D3DFC0;
+    border-top: 4px solid #9CAF72;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bike-workshop-dashboard .workshop-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(86, 110, 45, 0.10);
+}
+
+.bike-workshop-dashboard .workshop-card-label {
+    color: #343434;
+    font-weight: 600;
+}
+
+.bike-workshop-dashboard .workshop-card-number {
+    color: #343434;
+}
+
+.bike-workshop-dashboard .workshop-card-description {
+    color: #6C757D;
+}
+
+.bike-workshop-dashboard .workshop-card-link {
+    color: #66803F;
+    font-weight: 600;
+}
+
+.bike-workshop-dashboard .workshop-card-link:hover {
+    color: #506631;
+}
+
+
+/* =========================================================
+   2. Global Odoo Navbar
+   ========================================================= */
+
+.o_main_navbar {
+    background: linear-gradient(
+        90deg,
+        #789653 0%,
+        #8EAA68 50%,
+        #789653 100%
+    ) !important;
+
+    border-bottom: 1px solid #607B42 !important;
+}
+
+
+/* App name */
+
+.o_main_navbar .o_menu_brand {
+    background: transparent !important;
+    color: #FFFFFF !important;
+}
+
+
+/* Navbar menu items */
+
+.o_main_navbar .o_menu_sections .o_nav_entry,
+.o_main_navbar .o_menu_sections .dropdown-toggle,
+.o_main_navbar .o_menu_sections .dropdown-toggle span {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: #FFFFFF !important;
+}
+
+
+/* Navbar menu hover */
+
+.o_main_navbar .o_menu_sections .o_nav_entry:hover,
+.o_main_navbar .o_menu_sections .o_nav_entry:focus,
+.o_main_navbar .o_menu_sections .dropdown-toggle:hover,
+.o_main_navbar .o_menu_sections .dropdown-toggle:focus {
+    background: linear-gradient(
+        135deg,
+        #6E8949,
+        #587139
+    ) !important;
+
+    color: #FFFFFF !important;
+}
+
+.o_main_navbar .o_menu_sections .dropdown-toggle:hover span,
+.o_main_navbar .o_menu_sections .dropdown-toggle:focus span {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   3. Primary Buttons
+   ========================================================= */
+
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #A5BB78,
+        #769653
+    ) !important;
+
+    border: none !important;
+    color: #FFFFFF !important;
+
+    box-shadow: 0 2px 6px rgba(86, 110, 45, 0.16) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background: linear-gradient(
+        135deg,
+        #769653,
+        #5F7A3F
+    ) !important;
+
+    border: none !important;
+    color: #FFFFFF !important;
+
+    box-shadow: 0 4px 10px rgba(86, 110, 45, 0.22) !important;
+}
+
+
+/* =========================================================
+   4. Outline Primary Buttons
+   ========================================================= */
+
+.btn-outline-primary {
+    background: #FFFFFF !important;
+    color: #66803F !important;
+    border: 1px solid #A5BB78 !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background: linear-gradient(
+        135deg,
+        #A5BB78,
+        #769653
+    ) !important;
+
+    border-color: #769653 !important;
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   5. Secondary Buttons
+   ========================================================= */
+
+.btn-secondary {
+    --btn-color: #343434 !important;
+    --btn-bg: #FFFFFF !important;
+    --btn-border-color: #D3DFC0 !important;
+
+    --btn-hover-color: #343434 !important;
+    --btn-hover-bg: #EDF3E2 !important;
+    --btn-hover-border-color: #A5BB78 !important;
+
+    --btn-active-color: #343434 !important;
+    --btn-active-bg: #E2EBCF !important;
+    --btn-active-border-color: #769653 !important;
+}
+
+
+/* =========================================================
+   6. General Links
+   ========================================================= */
+
+a {
+    color: #66803F;
+}
+
+a:hover {
+    color: #506631;
+}
+
+
+/* =========================================================
+   7. Odoo Dropdown Items
+   ========================================================= */
+
+.o-dropdown-item.focus,
+.o-dropdown-item:hover {
+    background: #EDF3E2 !important;
+    color: #343434 !important;
+}
+
+
+/* =========================================================
+   8. Soft Workshop Accent
+   ========================================================= */
+
+.bike-workshop-dashboard .workshop-header::after {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #A5BB78,
+        #D3DFC0,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   9. Search Box Branding
+   ========================================================= */
+
+.o_searchview {
+    border-color: #C3D19F !important;
+}
+
+.o_searchview:focus-within {
+    border-color: #9CAF72 !important;
+    box-shadow: 0 0 0 2px rgba(156, 175, 114, 0.15) !important;
+}
+
+.o_searchview_input {
+    color: #343434 !important;
+}
+
+.o_searchview_facet {
+    border-color: #C3D19F !important;
+    background: #F2F6E9 !important;
+}
+
+.o_searchview_facet .o_facet_remove {
+    color: #66803F !important;
+}
+
+
+/* =========================================================
+   10. Statusbar - Balanced Green
+   ========================================================= */
+
+.o_field_statusbar > .o_statusbar_status,
+.o_field_statusbar_duration > .o_statusbar_status,
+.o_field_rotting_statusbar_duration > .o_statusbar_status {
+    --o-statusbar-background-active: #E5EDD5 !important;
+    --o-statusbar-border-active: #A5BB78 !important;
+    --o-statusbar-background-hover: #DCE7C9 !important;
+
+    --o-statusbar-border: #FFFFFF !important;
+}

@@ -2,9 +2,9 @@
 
 ## Description
 
-Bike Workshop is a custom Odoo 19 Community module for managing bikes, rentals, repairs, spare parts, and related workshop operations.
+Bike Workshop is a custom Odoo 19 Community module for managing bikes, rentals, repairs, spare parts, workshop operations, rental analysis, customer portal access, reporting, localization, and workshop branding.
 
-The module allows authorized workshop staff to manage bike records, rental operations, repair jobs, spare parts, customer information, and service information.
+The module allows authorized workshop staff to manage bike records, rental operations, repair jobs, spare parts, customer information, service information, and rental performance analysis.
 
 ## Features
 
@@ -204,6 +204,8 @@ The Rental Agreement includes:
 
 The report uses the stored rental values and provides a meaningful filename based on the Rental Reference.
 
+The Rental Agreement automatically follows the selected customer's language and supports both English and Arabic layouts, including RTL/LTR direction.
+
 ### Workshop Dashboard
 
 The Workshop Dashboard provides a summary of today's workshop operations:
@@ -237,6 +239,92 @@ Portal access is read-only and customers can only view their own rental records.
 
 Internal information such as mechanic assignments and service notes is not exposed through the portal.
 
+The portal supports English and Arabic through the Odoo website language selector.
+
+### Rental Analysis
+
+The module provides a dedicated read-only Rental Analysis screen using Odoo Pivot and Graph views.
+
+The analysis supports:
+
+* Rental Month based on Start Date
+* Bike Type
+* Bike
+* Rental Status
+* Customer
+* Return Performance
+
+Return Performance is calculated automatically as:
+
+* On Time
+* Late
+* Pending
+
+Return performance is determined from the Expected Return Date and Actual Return Date.
+
+The analysis provides measures for:
+
+* Total Rental Amount
+* Rental Duration
+* Average Rental Duration
+* Rental Count
+
+The analysis supports filtering by:
+
+* Rental Status
+* Bike Type
+* Customer
+* Start Date
+* Return Performance
+
+The default analysis includes Confirmed and Returned rentals while excluding Draft rentals.
+
+The Rental Analysis screen supports switching between Pivot and Graph views.
+
+### Localization
+
+The module supports English and Arabic interfaces.
+
+Arabic translations cover the custom module content, including:
+
+* Application menus
+* Model and field labels
+* Selection values
+* Workflow statuses
+* Buttons
+* Smart Buttons
+* Search filters
+* Group By options
+* Warnings and validation messages
+* Dashboard
+* Rental Analysis
+* Customer Portal
+* Rental Agreement
+
+Switching between English and Arabic does not change stored records or business behavior.
+
+The Rental Agreement follows the language configured for the selected customer.
+
+Arabic Rental Agreement output supports right-to-left layout, while English output uses left-to-right layout.
+
+### Branding and Styling
+
+The module includes Rami's Bike Workshop branding.
+
+Branding is applied consistently across the workshop interface and includes:
+
+* Rami's Bike Workshop logo
+* Green-based workshop theme
+* Branded Odoo navigation bar
+* Branded primary and secondary buttons
+* Branded search interface
+* Branded status indicators
+* Dashboard styling
+* Customer Portal styling
+* Rental Agreement workshop branding
+
+The company logo and workshop name are displayed in the Rental Agreement report.
+
 ## Views and Navigation
 
 The module provides:
@@ -245,6 +333,7 @@ The module provides:
 * Form Views
 * Search Views
 * Search Filters
+* Group By options
 * Workflow Buttons
 * Status Indicators
 * Smart Buttons
@@ -252,11 +341,13 @@ The module provides:
 * Rental Menus
 * Repair Menu
 * Workshop Dashboard
+* Rental Analysis
 
 Rental navigation includes:
 
 * All Rentals
 * Confirmed Rentals
+* Rental Analysis
 
 The Bike Rental smart button provides filtered rental history for the selected bike.
 
@@ -265,6 +356,8 @@ The Workshop Dashboard provides direct access to:
 * Active Rentals Today
 * Returns Due Today
 * Repairs In Progress
+
+Rental Analysis provides access to Pivot and Graph views.
 
 The Customer Portal provides access to customer rental information through the portal interface.
 
@@ -278,6 +371,7 @@ Workshop Staff have access to manage:
 * Rentals
 * Repairs
 * Repair Spare Parts
+* Rental Analysis
 
 The Administrator user is assigned to the Workshop Staff group by default.
 
@@ -329,8 +423,10 @@ After installation:
 5. Mark relevant Odoo Products as **Spare Parts** before using them in repairs.
 6. Use the Bike Rental smart button to view rental history for a specific bike.
 7. Use the **Workshop Dashboard** to monitor current rental and repair activity.
-8. Generate a **Rental Agreement** PDF from a rental record.
-9. Customers can use the **Customer Portal** to view their own rental information.
+8. Use **Rental Analysis** to analyze rental performance through Pivot and Graph views.
+9. Generate a **Rental Agreement** PDF from a rental record.
+10. Customers can use the **Customer Portal** to view their own rental information.
+11. Use the Odoo language selector to switch between English and Arabic.
 
 Users with Workshop Staff permissions can manage the available workshop operations through the List and Form views.
 
@@ -339,6 +435,8 @@ Users with Workshop Staff permissions can manage the available workshop operatio
 The module was tested on Odoo 19 Community.
 
 The following functionality was verified:
+
+### Core Functionality
 
 * Successful module installation
 * Successful module upgrade
@@ -355,6 +453,9 @@ The following functionality was verified:
 * Automatic actual return date
 * Rental overlap detection
 * Rental and Repair conflict prevention
+
+### Repair Functionality
+
 * Repair creation
 * Automatic repair reference generation
 * Workshop Bike repairs
@@ -370,6 +471,9 @@ The following functionality was verified:
 * Spare-parts validation
 * Shared Service Information
 * Preferred Bike Type on Contacts
+
+### Dashboard and Navigation
+
 * Bike rental smart button
 * Filtered rental history
 * All Rentals menu
@@ -378,9 +482,70 @@ The following functionality was verified:
 * Active Rentals Today counter and filtered records
 * Returns Due Today counter and filtered records
 * Repairs In Progress counter and filtered records
+
+### Reporting
+
 * Rental Agreement PDF generation
 * Rental Agreement stored rental values
 * Rental Agreement filename
+* English Rental Agreement output
+* Arabic Rental Agreement output
+* Customer-language-based Rental Agreement
+* Arabic RTL layout
+* English LTR layout
+* Workshop name and logo in Rental Agreement
+
+### Rental Analysis
+
+* Rental Analysis menu
+* Rental Analysis Pivot view
+* Rental Analysis Graph view
+* Rental Month grouping
+* Bike Type grouping
+* Bike grouping
+* Rental Status grouping
+* Customer grouping
+* Return Performance grouping
+* On Time return performance
+* Late return performance
+* Pending return performance
+* Total Rental Amount measure
+* Rental Duration measure
+* Average Rental Duration measure
+* Rental Count
+* Rental status filters
+* Bike Type filters
+* Start Date filters
+* Return Performance filters
+* Confirmed and Returned rental inclusion
+* Draft rental exclusion
+* Read-only analysis access
+
+### Localization and Branding
+
+* English interface
+* Arabic interface
+* Arabic custom module translations
+* Arabic menu and field labels
+* Arabic workflow and selection values
+* Arabic search filters and Group By options
+* Arabic Dashboard
+* Arabic Rental Analysis
+* Arabic Customer Portal
+* English/Arabic language switching
+* Customer-language-based Rental Agreement
+* RTL/LTR report behavior
+* Workshop branding
+* Workshop logo
+* Branded navigation bar
+* Branded buttons
+* Branded search interface
+* Branded status indicators
+* Branded Dashboard
+* Branded Customer Portal
+
+### Customer Portal and Security
+
 * Customer Portal access
 * My Rentals counter
 * Customer rental list
@@ -394,6 +559,23 @@ The following functionality was verified:
 * Repair status indicators
 * Workshop Staff access permissions
 * Unauthorized user restriction
-* Existing Bike Workshop functionality from Exercise 1
+
+### Fresh Database Verification
+
+The module was also installed and tested on a fresh Odoo database to verify that the module can be installed and configured independently from the original development database.
+
+Fresh database verification included:
+
+* Module installation
+* Module upgrade
+* Arabic translation loading
+* English/Arabic interface behavior
+* Arabic and English Rental Agreement generation
+* RTL/LTR report behavior
+* Company name and logo configuration
+* Rental Analysis
+* Workshop Dashboard
+* Customer Portal
+* Existing Bike Workshop functionality
 
 No installation or upgrade errors were encountered during testing.
